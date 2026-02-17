@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>College Tech Fest</title>
+        <style>
+/* ---------------- GLOBAL ---------------- */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+/* ---------------- 1. NAVIGATION BAR ---------------- */
+nav{
+    background-color:#111;
+    padding:10px 0;
+}
+nav ul{
+    list-style:none;
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+nav ul li{
+    display:inline-block;
+    margin:0 20px;
+}
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    padding:8px 15px;
+    transition:0.3s;
+}
+nav ul li a:hover{
+    background-color:#00bcd4;
+    border-radius:5px;
+}
+/* ---------------- 2. HERO SECTION ---------------- */
+.hero{
+    height:400px;
+    background-image:url('https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+.hero-content{
+    background:rgba(0,0,0,0.6);
+    padding:30px;
+    border-radius:10px;
+}
+.hero h1{
+    font-size:40px;
+    margin:0;
+}
+.hero p{
+    font-size:18px;
+}
+/* ---------------- 3. FEATURE BOXES ---------------- */
+.features{
+    display:flex;
+    justify-content:space-around;
+    padding:40px;
+    background:#f4f4f4;
+}
+.box{
+    background:white;
+    width:30%;
+    padding:20px;
+    margin:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    text-align:center;
+}
+/* ---------------- 4. IMAGE GALLERY ---------------- */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    padding:40px;
+}
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+/* ---------------- 5. TABLE ---------------- */
+table{
+    width:90%;
+    margin:40px auto;
+    border-collapse:collapse;
+}
+table, th, td{
+    border:1px solid #333;
+}
+th{
+    background-color:#00bcd4;
+    color:white;
+    padding:10px;
+}
+td{
+    padding:10px;
+    text-align:center;
+}
+tr:hover{
+    background-color:#f1f1f1;
+}
+/* ---------------- 6. REGISTER BUTTON ---------------- */
+.register{
+    text-align:center;
+    margin:40px;
+}
+.register button{
+    background:#ff5722;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:18px;
+    cursor:pointer;
+    animation: pulse 2s infinite;
+    transition:0.3s;
+}
+.register button:hover{
+    background:#e64a19;
+    transform:scale(1.1);
+}
+/* Animation */
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+/* REGISTER BUTTON */
+.register{
+    text-align:center;
+    margin:40px;
+}
+.register a{
+    text-decoration:none;
+    background:#ff5722;
+    color:white;
+    padding:12px 25px;
+    border-radius:25px;
+    font-size:18px;
+}
+.register a:hover{
+    background:#e64a19;
+}
+/* FORM SECTION (Hidden by default) */
+.form-section{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#f4f4f4;
+    padding:30px;
+    border-radius:10px;
+    width:320px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    text-align:center;
+}
+/* Show form when targeted */
+#formSection:target{
+    display:block;
+}
+/* Form Inputs */
+.form-section input,
+.form-section textarea,
+.form-section select{
+    width:90%;
+    padding:8px;
+    margin:8px 0;
+}
+/* Submit Button */
+.form-section button{
+    padding:8px 15px;
+    background:#00bcd4;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+/* SUCCESS MESSAGE */
+.success{
+    display:none;
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#4CAF50;
+    color:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+}
+/* Show success */
+#success:target{
+    display:block;
+}
+/* ---------------- 7. FOOTER ---------------- */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+/* ---------------- 8. FIXED HELP BUTTON ---------------- */
+.help-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#00bcd4;
+    color:white;
+    padding:10px 15px;
+    border-radius:50px;
+    cursor:pointer;
+}
+/* Example opacity */
+.opacity-box{
+    opacity:0.7;
+}
+/* ---------------- 9. RESPONSIVE ---------------- */
+@media(max-width:768px){
+    .features{
+        flex-direction:column;
+        align-items:center;
+    }
+    .box{
+        width:80%;
+    }
+    .gallery{
+        grid-template-columns:1fr;
+    }
+    nav ul li{
+        display:block;
+        margin:10px 0;
+    }
+}
+</style>
+</head>
+<body>
+<!-- 1. NAVIGATION -->
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+<!-- 2. HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>College Tech Fest 2026</h1>
+        <p>Join us for Coding, Robotics & AI Innovations!</p>
+    </div>
+</section>
+<!-- 3. FEATURES -->
+<section class="features">
+    <div class="box opacity-box">
+        <h3>Coding Contest</h3>
+        <p>Show your programming skills and win prizes.</p>
+    </div>
+    <div class="box">
+        <h3>Robotics Show</h3>
+        <p>Experience next-gen robotic technologies.</p>
+    </div>
+    <div class="box">
+        <h3>AI Workshop</h3>
+        <p>Learn Artificial Intelligence from experts.</p>
+    </div>
+</section>
+<!-- 4. GALLERY -->
+<section class="gallery">
+    <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg">
+    <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg">
+    <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg">
+    <img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg">
+    <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg">
+    <img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg">
+</section>
+<!-- 5. TABLE -->
+<table>
+    <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Venue</th>
+    </tr>
+    <tr>
+        <td>Coding Contest</td>
+        <td>March 10</td>
+        <td>10:00 AM</td>
+        <td>Lab 1</td>
+    </tr>
+    <tr>
+        <td>Robotics Show</td>
+        <td>March 11</td>
+        <td>11:00 AM</td>
+        <td>Auditorium</td>
+    </tr>
+    <tr>
+        <td>AI Workshop</td>
+        <td>March 12</td>
+        <td>9:30 AM</td>
+        <td>Seminar Hall</td>
+    </tr>
+</table>
+<!-- REGISTER BUTTON -->
+<div class="register">
+    <a href="#formSection">Register Now</a>
+</div>
+<!-- REGISTRATION FORM -->
+<div class="form-section" id="formSection">
+    <h3>Tech Fest Registration</h3>
+    <form action="#success">
+        <input type="text" placeholder="Enter Your Name" required>
+        <textarea placeholder="Enter Your Address" required></textarea>
+        <select required>
+            <option value="">Select District</option>
+            <option>Madurai</option>
+            <option>Chennai</option>
+            <option>Coimbatore</option>
+        </select>
+        <select required>
+            <option value="">Select Event</option>
+            <option>Coding Contest</option>
+            <option>Robotics Show</option>
+            <option>AI Workshop</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a href="#">Close</a>
+</div>
+<!-- SUCCESS MESSAGE -->
+<div class="success" id="success">
+🎉 Congratulations! Registration Successful! 🎉
+<br><br>
+<a href="#" style="color:white;">Close</a> <br><br>
+<a href="#" style="color:white;">Home</a>
+</div>
+<!-- 8. FIXED HELP BUTTON -->
+<div class="help-btn">Help</div>
+<!-- FOOTER -->
+<footer>
+    Contact: techfest@college.com | +91 1234567890
+</footer>
+</body>
+</html>
